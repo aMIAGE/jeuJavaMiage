@@ -2,7 +2,7 @@ adm
 2
 L'enigme du bureau de l'administration
 dir
-3
+9
 L'enigme du bureau du directeur
 gardien
 1
@@ -12,7 +12,7 @@ guichet
 l'enigme du guichet
 entree
 0
-l'enigme de l'entrée
+l'enigme de l'entrÃ©e
 entree
 3
 la nouvelle enigme de l'entree
