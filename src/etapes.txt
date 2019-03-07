@@ -17,7 +17,7 @@ entree
 3
 la nouvelle enigme de l'entree
 reserve
-7
+6
 l'enigme de la reserve
 attente
 7
