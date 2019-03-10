@@ -16,14 +16,12 @@ public class Panel extends JPanel {
 	String image;
 	int largeur;
 	int longueur;
-	Joueur joueur;
 	
-	public Panel(String nvImage,int nvLargeur, int nvLongueur, Joueur nvJoueur) {
+	public Panel(String nvImage,int nvLargeur, int nvLongueur) {
 		this.image = "src/images/"+nvImage+".jpg";
 		this.longueur = nvLongueur;
 		this.largeur = nvLargeur;
 		this.setPreferredSize(new Dimension(this.longueur, this.largeur));
-		this.joueur = nvJoueur;
 		this.setBorder(new BevelBorder(BevelBorder.RAISED));
 	}
 	

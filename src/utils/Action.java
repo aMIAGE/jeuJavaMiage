@@ -12,6 +12,7 @@ import elmtJeu.Enigme;
 import elmtJeu.Etape;
 import elmtJeu.Fenetre;
 import elmtJeu.Joueur;
+import main.Jeu;
 import panel.JeuPanel;
 import panel.Panel;
 import panel.PlanPanel;
@@ -19,69 +20,64 @@ import panel.ZonePanel;
 
 public class Action implements ActionListener{
 	private String act;
-	PlanPanel planPanel;
-	ZonePanel zonePanel;
-	JeuPanel jeuPanel;
-	Joueur joueur;
 	Fenetre fenetre;
 	
-	public Action(String action, PlanPanel nvPlanPanel, JeuPanel nvJeuPanel, ZonePanel nvZonePanel, Joueur nvJoueur, Fenetre fen) {
+	public Action(String action, Fenetre fen) {
 		this.act = action;
-		this.jeuPanel = nvJeuPanel;
-		this.zonePanel = nvZonePanel;
-		this.planPanel = nvPlanPanel;
-		this.joueur = nvJoueur;
 		this.fenetre = fen;
 	}
 	
 	public void avancer() {
-		  joueur.avancer();
-		  this.planPanel.repaint();
+		  Jeu.joueur.avancer();
+		  this.fenetre.panels.getPlanPanel().repaint();
 		  enigme();
 	}
 	
 	public void allerAGauche() {
-		joueur.allerAGauche();
-		this.planPanel.repaint();
+		Jeu.joueur.allerAGauche();
+		this.fenetre.panels.getPlanPanel().repaint();
 		enigme();
 	}
 	
 	public void reculer() {
-		  joueur.reculer();
-		  this.planPanel.repaint();
+		  Jeu.joueur.reculer();
+		  this.fenetre.panels.getPlanPanel().repaint();
 		  enigme();
 	}
 	
 	public void allerADroite() {
-		joueur.allerADroite();
-		this.planPanel.repaint();
+		Jeu.joueur.allerADroite();
+		this.fenetre.panels.getPlanPanel().repaint();
 		enigme();
 	}
 	
 	public void enigme() {
-		Zone currentZone = zonePanel.getCurrentZone(joueur); // la zone ou se trouve le joueur
+		ZonePanel zonePanel = this.fenetre.panels.getZonePanel();
+		Joueur joueur = Jeu.joueur;
+		
+		//récupération de la zone actuelle du joueur
+		Zone currentZone = zonePanel.getCurrentZone(); 
 		  
 		  if(!currentZone.getNom().equals(joueur.getCurrentZone())) {
 			  //si le joueur a changé de zone
-			  ((CardLayout) this.zonePanel.getLayout()).show(this.zonePanel, currentZone.getNom());//je change l'image de la zone
-			  
+			  zonePanel.setZoneImage(currentZone.getNom());//je change l'image de la zone
 			  joueur.setCurrentZone(currentZone.getNom()); //je change la zone du joueur
+			  
 			  int currentEtape = joueur.getCurrentEtape(); //etape que le joueur doit faire maintenant
 			  Etape etape = currentZone.getEtapes(currentEtape); // on regarde si l'étape a faire est dans cette zone
-			  System.out.println(currentEtape);
-			  if(etape != null) System.out.println(etape.getNumEtape());
-			  else System.out.println("c'est null");
 			  
 			  
 			  JOptionPane jop1 = new JOptionPane();
 			  ImageIcon img = new ImageIcon("src/jeux/test2/images/enigme.jpg");
 			  String txt = "";
 			  if(etape == null) {
-					 txt = " aucune etape associée";
-					  JOptionPane.showMessageDialog(null, txt, "Enigme", JOptionPane.INFORMATION_MESSAGE, img); 
+				  //on pourra mettre un message en JAVA qui dit qu'il n'y a pas/plus d'étape la ou il vient d'arriver
+					 //txt = " aucune etape associée";
+					  //JOptionPane.showMessageDialog(null, txt, "Enigme", JOptionPane.INFORMATION_MESSAGE, img); 
 				 }
 				 else {
 					 if(etape.getNumEtape() == -1) {
+						 //si on veut dire pourquoi on a perdu on doit enregistré dans chaque étape un message disant pourquoi on perd 
 						  txt = "vous avez perdu";
 						  JOptionPane.showMessageDialog(null, txt, "Enigme", JOptionPane.INFORMATION_MESSAGE, img); 
 						 }
@@ -98,7 +94,10 @@ public class Action implements ActionListener{
 	
 	
 	public void aideJava() {
-		Zone currentZone = zonePanel.getCurrentZone(joueur);
+		ZonePanel zonePanel = this.fenetre.panels.getZonePanel();
+		JeuPanel jeuPanel = this.fenetre.panels.getJeuPanel();
+		Zone currentZone = zonePanel.getCurrentZone();
+		
 		if(currentZone != null) {
 			jeuPanel.setTexte(currentZone.getInstructions(), "java");
 			jeuPanel.setImage("java");
@@ -109,7 +108,7 @@ public class Action implements ActionListener{
 		}
 		
 		
-		this.jeuPanel.repaint();
+		jeuPanel.repaint();
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -133,15 +132,17 @@ public class Action implements ActionListener{
 		}
 		
 		if(this.act == "chrono") {
-			jeuPanel.setTexte(joueur.getChrono().getStringTime(), "chrono");
+			JeuPanel jeuPanel = this.fenetre.panels.getJeuPanel();
+			jeuPanel.setTexte(Jeu.joueur.getChrono().getStringTime(), "chrono");
 			jeuPanel.setImage("chrono");
-			this.jeuPanel.repaint();
+			jeuPanel.repaint();
 		}
 		
 		if(this.act == "commandes") {
+			JeuPanel jeuPanel = this.fenetre.panels.getJeuPanel();
 			jeuPanel.setTexte("on affichera la liste des commandes", "commandes");
 			jeuPanel.setImage("gardien");
-			this.jeuPanel.repaint();
+			jeuPanel.repaint();
 		}
 		
 		if(this.act == "enigme") {
