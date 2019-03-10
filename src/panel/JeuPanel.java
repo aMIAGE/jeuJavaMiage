@@ -16,11 +16,15 @@ public class JeuPanel extends Panel {
 	private String id;
 		
 	public JeuPanel(String nvImage, int nvLargeur, int nvLongueur, String nvTxt, String nvId){
-		super("blanc", nvLargeur, nvLongueur,null);
+		super("blanc", nvLargeur, nvLongueur);
 		this.txt = nvTxt;
 		this.image = "src/images/"+nvImage+".jpg";
 		this.id = nvId;
 		
+	}
+	
+	public String getId() {
+		return this.id;
 	}
 	
 	public void setImage(String source) {
@@ -34,16 +38,6 @@ public class JeuPanel extends Panel {
 	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		
-		if(this.id == "chrono") {
-			g.setColor(Color.blue);
-			Font police = new Font("Arial", Font.BOLD, 40);
-			g.setFont(police);
-		}
-		else {
-			g.setColor(Color.black);
-		}
-		g.drawString(this.txt, this.largeur/2+50, this.longueur/2);
 		Image img;
 		try {
 			img = ImageIO.read(new File(this.image));
@@ -51,6 +45,16 @@ public class JeuPanel extends Panel {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		if(this.id == "chrono") {
+			g.setColor(Color.black);
+			Font police = new Font("Calibri", Font.BOLD, 20);
+			g.setFont(police);
+		}
+		else {
+			g.setColor(Color.black);
+		}
+		g.drawString(this.txt, this.largeur/2, this.longueur/2);
 	}
 	
 

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Vector;
 
 import elmtJeu.Etape;
-import elmtJeu.Joueur;
+import main.Jeu;
 import utils.Zone;
 
 //c'est le paneau qui contiendra les images des zones et qui permettra de les faire défiler 
@@ -17,7 +17,7 @@ public class ZonePanel extends Panel {
 
 		
 	public ZonePanel(String nvImage,int nvLargeur, int nvLongueur) throws IOException {
-		super(nvImage,nvLargeur, nvLongueur, null);
+		super(nvImage,nvLargeur, nvLongueur);
 		
 		this.setLayout(new CardLayout());
 		this.ajouterZone();
@@ -29,12 +29,12 @@ public class ZonePanel extends Panel {
 		this.vZone = new Vector<Zone>();
 		Zone nvZone = new Zone("couloir",ZonePanel.nbZone,"couloir", 0, 0, 0, 0, null, null);
 		this.vZone.add(nvZone);
-		this.add(new Panel(nvZone.getImgSource(), this.largeur,this.longueur,null), nvZone.getNom());
+		this.add(new Panel(nvZone.getImgSource(), this.largeur,this.longueur), nvZone.getNom());
 		ZonePanel.nbZone ++;
 		
 		
 		BufferedReader infoZones = new BufferedReader(new FileReader("src/zones.txt"));
-		this.add(new Panel("blanc", 600,450,null), "blanc");
+		this.add(new Panel("blanc", 600,450), "blanc");
 		String nom;
 		Integer minX;
 		Integer maxX;
@@ -82,22 +82,26 @@ public class ZonePanel extends Panel {
 			
 			nvZone = new Zone(nom,ZonePanel.nbZone,nom, minX, maxX, minY, maxY, vEtapes, vInstructions);
 			this.vZone.add(nvZone);
-			this.add(new Panel(nvZone.getImgSource(), this.largeur,this.longueur,null), nvZone.getNom());
+			this.add(new Panel(nvZone.getImgSource(), this.largeur,this.longueur), nvZone.getNom());
 			lineInfo = infoZones.readLine();
 		}
 	}
 	
 	//nomzonecourante
-	public Zone getCurrentZone(Joueur joueur) {
+	public Zone getCurrentZone() {
 		for(int i=1;i<ZonePanel.nbZone;i++) {
-			if(joueur.getPosX()>vZone.get(i).getDim().get(0) && joueur.getPosX() < vZone.get(i).getDim().get(1) ) {
-				if(joueur.getPosY() > vZone.get(i).getDim().get(2) && joueur.getPosY() < vZone.get(i).getDim().get(3)) {
+			if(Jeu.joueur.getPosX()>vZone.get(i).getDim().get(0) && Jeu.joueur.getPosX() < vZone.get(i).getDim().get(1) ) {
+				if(Jeu.joueur.getPosY() > vZone.get(i).getDim().get(2) && Jeu.joueur.getPosY() < vZone.get(i).getDim().get(3)) {
 					return vZone.get(i);
 				}
 			}
 		}
 		return vZone.get(0);
 		//je suis dans un couloir dés que je ne suis pas dans une zone repertorié pour le moment
+	}
+	
+	public void setZoneImage(String nom) {
+		((CardLayout) this.getLayout()).show(this, nom);
 	}
 	
 }

@@ -13,19 +13,11 @@ import utils.Bouton;
 
 public class CommandePanel extends Panel{
 	private static final long serialVersionUID = 1L;
-	PlanPanel planPanel;
-	ZonePanel zonePanel;
-	JeuPanel jeuPanel;
-	Joueur joueur;
 	Fenetre fenetre;
 	
-	public CommandePanel(String nvImage, int nvLargeur, int nvLongueur, JeuPanel nvJeuPanel, PlanPanel nvPlanPanel, ZonePanel nvZonePanel, Joueur nvJoueur, Fenetre fen) {
+	public CommandePanel(String nvImage, int nvLargeur, int nvLongueur, Fenetre fen) {
 		
-		super(nvImage, nvLargeur, nvLongueur,null);
-		this.jeuPanel = nvJeuPanel;
-		this.zonePanel = nvZonePanel;
-		this.planPanel = nvPlanPanel;
-		this.joueur = nvJoueur;
+		super(nvImage, nvLargeur, nvLongueur);
 		this.fenetre = fen;
 		
 	    this.setLayout(new GridLayout(2, 1));
@@ -37,10 +29,10 @@ public class CommandePanel extends Panel{
 	
 	
 	public Panel creerBoutonsCommandes() {
-		Panel commandes = new Panel("blanc", 600, 450,null);
+		Panel commandes = new Panel("blanc", 600, 450);
 		
 		Bouton java = new Bouton("Appeler Java");
-		java.addActionListener(new Action("java",null, jeuPanel, zonePanel, joueur,null) );
+		java.addActionListener(new Action("java",this.fenetre) );
 		commandes.add(java);
 		
 		
@@ -48,50 +40,50 @@ public class CommandePanel extends Panel{
 		//affiche l'inventaire sur le jeuPanel
 		
 		Bouton comm = new Bouton("Voir les commandes");
-		comm.addActionListener(new Action("commandes", null, jeuPanel,null, null,null));
+		comm.addActionListener(new Action("commandes", this.fenetre));
 		commandes.add(comm);
 		//affiche une image contenant les commandes sur le jeuPanel
 		
 		Bouton boutChrono = new Bouton("Voir le chrono");
-		boutChrono.addActionListener(new Action("chrono", null, jeuPanel,null, joueur,null));
+		boutChrono.addActionListener(new Action("chrono", this.fenetre));
 		commandes.add(boutChrono);
 		//affiche le chrono sur le jeuPanel
 		
 		Bouton boutEnigme = new Bouton("ouvrir une fenetre d'enigme");
-		boutEnigme.addActionListener(new Action("enigme", null, jeuPanel, zonePanel, joueur,this.fenetre));
+		boutEnigme.addActionListener(new Action("enigme", this.fenetre));
 		commandes.add(boutEnigme);
 		
 		return commandes;
 	}
 		
 		public Panel creerBoutonsDirection() {
-			Panel direction = new Panel("blanc", 600, 450,null);
+			Panel direction = new Panel("blanc", 600, 450);
 			direction.setLayout(new GridLayout(3,3));
 			
 			
 			Bouton av = new Bouton("Avancer");
-		    av.addActionListener(new Action("av",planPanel,null,  zonePanel,joueur,null));
+		    av.addActionListener(new Action("av",this.fenetre));
 		    
 		    Bouton enter = new Bouton("Entrer");
 		    
 		    Bouton gauche = new Bouton("Gauche");
-		    gauche.addActionListener(new Action("gauche",planPanel,null, zonePanel, joueur,null));
+		    gauche.addActionListener(new Action("gauche",this.fenetre));
 		    
 		    Bouton droite = new Bouton("Droite");
-		    droite.addActionListener(new Action("droite",planPanel,null, zonePanel, joueur,null));
+		    droite.addActionListener(new Action("droite",this.fenetre));
 
 		    Bouton rec = new Bouton("Reculer");
-		    rec.addActionListener(new Action("rec",planPanel, null, zonePanel,joueur,null));
+		    rec.addActionListener(new Action("rec",this.fenetre));
 		    
-		    direction.add(new Panel("blanc" ,10,10,null)); //provisoire pour mettre un blanc 
+		    direction.add(new Panel("blanc" ,10,10)); //provisoire pour mettre un blanc 
 		    direction.add(av);
-		    direction.add(new Panel("blanc" ,10,10,null)); //provisoire pour mettre un blanc 
+		    direction.add(new Panel("blanc" ,10,10)); //provisoire pour mettre un blanc 
 		    direction.add(gauche);
 		    direction.add(enter);
 		    direction.add(droite);
-		    direction.add(new Panel("blanc" ,10,10,null)); //provisoire pour mettre un blanc 
+		    direction.add(new Panel("blanc" ,10,10)); //provisoire pour mettre un blanc 
 		    direction.add(rec);
-		    direction.add(new Panel("blanc" ,10,10,null)); //provisoire pour mettre un blanc 
+		    direction.add(new Panel("blanc" ,10,10)); //provisoire pour mettre un blanc 
 		    
 		    return direction;
 		}

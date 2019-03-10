@@ -41,7 +41,7 @@ public class Enigme extends JDialog {
 	 
 	 private void initComponent() {
 		 //panel de base
-		 Panel pan = new Panel("blanc", 600,600,null);
+		 Panel pan = new Panel("blanc", 600,600);
 		 pan.setLayout(new MigLayout());
 		 
 		 //l'image
