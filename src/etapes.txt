@@ -1,30 +1,153 @@
-adm
-2
-L'enigme du bureau de l'administration
-dir
-9
-L'enigme du bureau du directeur
+entree 
+0 
+(void)
+hall 
+0 
+Parviendrez-vous à passer les portiques de sécurité sans vous faire remarquer ?
+hall 
+4 
+Parviendrez-vous à verrouiller la porte ?
+couloir 
+1 
+(void)
+couloir 
+2 
+(void)
+couloir 
+3 
+(void)
+couloir 
+4 
+(void)
+couloir 
+5 
+(void)
+couloir 
+8 
+(void)
+couloir 
+9 
+(void)
 gardien
-1
-l'enigme du gardien
+1 
+Parviendrez-vous à maîtriser le gardien ?
+gardien 
+8
+Parviendrez-vous à réunir tous ces éléments ?
+attente 
+3 
+Parviendrez-vous à empêcher les otages de s’échapper ?
+guichet 
+2 
+Parviendrez-vous à réunir tous les otages ?
+guichet 
+5 
+(void)
+guichet 
+8 
+(void)
 guichet
-5
-l'enigme du guichet
-entree
-0
-l'enigme de l'entrée
-entree
-3
-la nouvelle enigme de l'entree
-reserve
-7
-l'enigme de la reserve
-attente
-7
-l'enigme de la salle d'attente
-coffres
-2
-l'enigme de la salle des coffres
-imprimerie
 9
-l'enigme de l'imprimerie
+(void)
+adm
+5
+(void)
+adm
+6
+(void)
+adm
+8
+(void)
+adm
+9
+(void)
+adm
+10
+(adm)
+adm
+11
+(void)
+adm
+12
+(void)
+adm
+13
+(void)
+adm
+14
+(void)
+adm
+15
+(void)
+directeur
+5
+Parviendrez-vous à trouver la bonne clé parmi tous les trousseaux du directeur ?
+directeur
+9
+(void)
+directeur
+10
+(void)
+directeur
+11
+(void)
+directeur
+12
+(void)
+directeur
+13
+(void)
+directeur
+14
+(void)
+directeur
+15
+(void)
+coffre
+9
+Parviendrez-vous à trouver le code du coffre ?
+coffre
+11
+Parviendrez-vous à trouver la force de creuser la partie en béton armé du sol ?
+coffre
+13
+Parviendrez-vous à trouver la force de finir ce tunnel ?
+coffre
+15
+Parviendrez-vous à vous échapper avant que la police ne découvre votre de plan de sortie ?
+reserve
+6
+Parviendrez-vous à choisir les bons matériaux ?
+reserve
+8
+(void)
+reserve
+10
+(void)
+reserve
+11
+(void)
+reserve
+12
+(void)
+reserve
+13
+(void)
+reserve
+14
+(void)
+reserve
+15
+(void)
+imprimerie
+7
+Parviendrez-vous à lancer l’imprimante ?
+imprimerie
+10
+Vous êtes encore novice, parviendrez-vous à lancer l’impression de nouveau ?
+imprimerie
+12
+Pour cette dernière impression, parviendrez-vous à la réaliser avec succès comme les précédentes ?
+imprimerie
+14
+Parviendrez-vous à récupérer tout cet argent dans la brouette ?
