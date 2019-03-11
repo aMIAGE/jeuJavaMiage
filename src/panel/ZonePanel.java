@@ -27,7 +27,7 @@ public class ZonePanel extends Panel {
 	public void ajouterZone() throws IOException {
 		//ajout de la zone couloir qui our l'instant represente tous ce qui n'est pas une piece
 		this.vZone = new Vector<Zone>();
-		Zone nvZone = new Zone("couloir",ZonePanel.nbZone,"couloir", 0, 0, 0, 0, null, null);
+		Zone nvZone = new Zone("entree",ZonePanel.nbZone,"entree", 0, 0, 0, 0, null, null);
 		this.vZone.add(nvZone);
 		this.add(new Panel(nvZone.getImgSource(), this.largeur,this.longueur,null), nvZone.getNom());
 		ZonePanel.nbZone ++;
