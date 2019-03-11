@@ -1,0 +1,22 @@
+adm
+Tu es dans les bureaux de l'administration
+adm
+Tu es toujours dans les bureaux de l'administration
+adm
+Tu es encore au meme endroit, bouge un peu
+dir
+Tu es dans le bureau du directeur
+gardien
+Tu es dans la maison du gardien
+guichet
+Tu es au guichet
+entree
+Tu es dans l'entrée
+reserve
+Tu es dans la réserve
+attente
+Tu es dans la salle d'attente
+coffres
+Tu es dans la salle des coffres
+imprimerie
+Tu es dans l'imprimerie
