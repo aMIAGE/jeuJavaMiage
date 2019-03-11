@@ -56,20 +56,23 @@ public class Zone {
 	}
 	
 	private void trierEtape() {
-		Vector<Etape> nvVect = new Vector<Etape>();
-		Etape minEtape = this.zoneEtapes.get(0);
-		int index = 0;
-		while(this.zoneEtapes.size() != 0)
-		for(int i = 1; i < this.zoneEtapes.size(); i++) {
-			if(this.zoneEtapes.get(i).getNumEtape() < minEtape.getNumEtape()) {
-				minEtape = this.zoneEtapes.get(i);
-				index = i;
+		if(this.zoneEtapes!=null) {
+			Vector<Etape> nvVect = new Vector<Etape>();
+			Etape minEtape = this.zoneEtapes.get(0);
+			int index = 0;
+			while(this.zoneEtapes.size() != 0)
+			for(int i = 1; i < this.zoneEtapes.size(); i++) {
+				if(this.zoneEtapes.get(i).getNumEtape() < minEtape.getNumEtape()) {
+					minEtape = this.zoneEtapes.get(i);
+					index = i;
+				}
+				nvVect.add(minEtape);
+				this.zoneEtapes.remove(index);
 			}
-			nvVect.add(minEtape);
-			this.zoneEtapes.remove(index);
+			
+			this.zoneEtapes = nvVect;
 		}
 		
-		this.zoneEtapes = nvVect;
 		
 	}
 	
