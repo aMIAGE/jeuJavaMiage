@@ -33,7 +33,7 @@ public class ZonePanel extends Panel {
 		ZonePanel.nbZone ++;
 		
 		
-		BufferedReader infoZones = new BufferedReader(new FileReader("src/zones.txt"));
+		BufferedReader infoZones = new BufferedReader(new FileReader("src/files/zones.txt"));
 		this.add(new Panel("blanc", 600,450,null), "blanc");
 		String nom;
 		Integer minX;
@@ -42,12 +42,12 @@ public class ZonePanel extends Panel {
 		Integer maxY;
 		String lineInfo = infoZones.readLine();
 		
-		BufferedReader etape = new BufferedReader( new FileReader("src/etapes.txt"));
+		BufferedReader etape = new BufferedReader( new FileReader("src/files/etapes.txt"));
 		String lineEtape = etape.readLine();
 		int numEtape;
 		Vector<Etape> vEtapes;
 		
-		BufferedReader instructions = new BufferedReader( new FileReader("src/instructions.txt"));
+		BufferedReader instructions = new BufferedReader( new FileReader("src/files/instructions.txt"));
 		String lineInstructions = instructions.readLine();
 		Vector<String> vInstructions;
 		
