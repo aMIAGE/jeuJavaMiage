@@ -20,7 +20,7 @@ public class Jeu{
 	public static void main(String[] args) throws IOException {
 		
 		//on crée le joueur en le placant à l'entrée du bâtiment 
-		Jeu.joueur = new Joueur(201,438);
+		Jeu.joueur = new Joueur(228,306);
 		joueur.setChrono(new Chrono(System.currentTimeMillis()));
 		
 		Fenetre fen = new Fenetre(Jeu.joueur);

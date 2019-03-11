@@ -15,7 +15,7 @@ public class Joueur{
 		this.posY = y;
 		this.chrono = null;
 		this.currentEtape = 0;
-		this.currentZone = "ext";
+		this.currentZone = "entree";
 	}
 	
 	
