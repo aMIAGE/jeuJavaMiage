@@ -1,30 +1,57 @@
-adm
-2
-L'enigme du bureau de l'administration
-dir
-3
-L'enigme du bureau du directeur
+entree 
+0 
+vide
+hall 
+0 
+Parviendrez-vous à passer les portiques de sécurité sans vous faire remarquer ?
+hall 
+4 
+Parviendrez-vous à verrouiller la porte ?
+couloir 
+0 
+vide
 gardien
-1
-l'enigme du gardien
-guichet
-5
-l'enigme du guichet
-entree
+1 
+Parviendrez-vous à maîtriser le gardien ?
+gardien 
+8
+Parviendrez-vous à réunir tous ces éléments ?
+attente 
+3 
+Parviendrez-vous à empêcher les otages de s’échapper ?
+guichet 
+2 
+Parviendrez-vous à réunir tous les otages ?
+adm
 0
-l'enigme de l'entr�e
-entree
-3
-la nouvelle enigme de l'entree
-reserve
-7
-l'enigme de la reserve
-attente
-7
-l'enigme de la salle d'attente
-coffres
-2
-l'enigme de la salle des coffres
-imprimerie
+vide
+directeur
+5
+Parviendrez-vous à trouver la bonne clé parmi tous les trousseaux du directeur ?
+coffre
 9
-l'enigme de l'imprimerie
+Parviendrez-vous à trouver le code du coffre ?
+coffre
+11
+Parviendrez-vous à trouver la force de creuser la partie en béton armé du sol ?
+coffre
+13
+Parviendrez-vous à trouver la force de finir ce tunnel ?
+coffre
+15
+Parviendrez-vous à vous échapper avant que la police ne découvre votre de plan de sortie ?
+reserve
+6
+Parviendrez-vous à choisir les bons matériaux ?
+imprimerie
+7
+Parviendrez-vous à lancer l’imprimante ?
+imprimerie
+10
+Vous êtes encore novice, parviendrez-vous à lancer l’impression de nouveau ?
+imprimerie
+12
+Pour cette dernière impression, parviendrez-vous à la réaliser avec succès comme les précédentes ?
+imprimerie
+14
+Parviendrez-vous à récupérer tout cet argent dans la brouette ?
