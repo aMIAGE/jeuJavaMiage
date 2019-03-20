@@ -1,3 +1,2 @@
-# jeuJavaMiage
-Projet jeu java de L3 Miage 
-Ceci est un test d'ajout 
+# Jeu d'aventure JAVA
+Projet jeu java 
