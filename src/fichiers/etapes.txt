@@ -1,0 +1,90 @@
+﻿adm
+0
+vide
+vide
+vide
+dir
+5
+Parviendrez-vous a trouver la bonne cle parmi tous les trousseaux du directeur ?
+Felicitations : vous allez pouvoir continuer !
+Dommage, vous n avez rien trouve : vous perdez !
+gardien
+1
+Parviendrez-vous a maitriser le gardien ?
+Felicitations :  vous l’avez attache et baillonne il ne bougera plus !
+C’est le gardien qui vous coince et appelle la police : vous perdez !
+gardien
+8
+Parviendrez-vous a reunir tous ces elements ?
+Felicitations : vous allez pouvoir continuer !
+Dommage, vous n avez rien trouve : vous perdez 
+guichet
+2
+Parviendrez-vous a reunir tous les otages ?
+Felicitations : ils ont maintenant peur de vous !
+Vous etes interpelle par la securite : vous perdez !
+entree
+0
+Parviendrez-vous a passer les portiques de securite sans vous faire remarquer ?
+Felicitations : vous etes passe inapercu !
+Dommage, vous etes interpelle par la securite : vous perdez ! 
+entree
+4
+Parviendrez-vous a verrouiller la porte ?
+Felicitations : la banque est impenetrable !
+Un nouveau client entre et appelle la police en vous voyant : vous perdez !
+reserve
+6
+Parviendrez-vous a choisir les bons materiaux ?
+Felicitations : vous allez pouvoir continuer !
+Dommage, vous n’avez rien trouve : vous perdez ! 
+attente
+3
+Parviendrez-vous a empecher les otages de s’echapper ?
+Felicitations : ils ne bougeront plus !
+L un d’eux vous attrape par surprise et les autres s’enfuient : vous perdez !
+coffres
+9
+Parviendrez-vous a trouver le code du coffre ?
+Felicitations : vous allez pouvoir continuer !
+Dommage, l alarme se declenche : vous perdez !
+coffres
+11
+creuser
+creuser
+creuser
+coffres
+13
+creuser
+creuser
+creuser
+coffres
+15
+creuser
+creuser
+creuser
+imprimerie
+7
+Parviendrez-vous a lancer l’imprimante ?
+Felicitations : elle est en route pour le premier milliard !
+Dommage, vous ne comprenez pas le fonctionnement : vous perdez !
+imprimerie
+10
+Vous etes encore novice, parviendrez-vous a lancer l impression de nouveau ?
+Felicitations : elle est en route pour le deuxieme milliard !
+C’etait la fameuse chance du debutant : vous perdez !
+imprimerie
+12
+Pour cette derniere impression, parviendrez-vous a la realiser avec succes comme les precedentes ?
+Felicitations : elle est en route pour le troisieme milliard !
+Dommage, vous etiez si proche du but : vous perdez !
+imprimerie
+14
+Parviendrez-vous a recuperer tout cet argent dans la brouette ?
+Bel agencement : c est sur, aucun billet ne pourra tomber !
+Dommage, vous etiez si proche du but : vous perdez !
+couloir
+0
+vide
+vide
+vide  

@@ -1,8 +1,8 @@
 package elmtJeu;
-
+import main.Jeu;
+import panel.ZonePanel;
 import utils.Chrono;
 
-//un joueur avec sa position sur la carte, 
 public class Joueur{
 	private Chrono chrono;
 	private int posX;
@@ -15,7 +15,8 @@ public class Joueur{
 		this.posY = y;
 		this.chrono = null;
 		this.currentEtape = 0;
-		this.currentZone = "entree";
+		this.currentZone = "extérieur";
+
 	}
 	
 	
@@ -44,20 +45,20 @@ public class Joueur{
 	 }
 	 
 	 public void avancer() {
-		  this.setPosY(this.getPosY() - 20);
+		 this.posY = this.posY-10;
 		
 	}
 	 
 	 public void reculer() {
-		 this.setPosY(this.getPosY()+20);
+		 this.posY = this.posY+10;
 	 }
 	 
 	 public void allerADroite() {
-		 this.setPosX(this.getPosX()+20);
+		 this.posX = this.posX + 10;
 	 }
 	 
 	 public void allerAGauche() {
-		 this.setPosX(this.getPosX()-20);
+		 this.posX = this.posX - 10;
 	 }
 	 
 	public int getCurrentEtape() {
@@ -76,4 +77,17 @@ public class Joueur{
 		this.currentZone = nomZone;
 	}
 	
+	public boolean isChangementZone() {
+		//renvoie vraie si le joueur essaye de changer de zone 
+		ZonePanel zonePanel = Jeu.getFenetre().getPanels().getZonePanel();
+		Zone currentZone = zonePanel.getCurrentZone(); 
+		if(currentZone != null) {
+			return !currentZone.getNom().equals(this.currentZone);
+		}
+		else{
+			return true;//ici le joueur va etre arreté par une collision ou autre
+		}
+		
+	}
+
 }

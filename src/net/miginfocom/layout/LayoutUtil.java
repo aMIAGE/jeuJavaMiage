@@ -44,6 +44,7 @@ import java.util.WeakHashMap;
  */
 public final class LayoutUtil
 {
+	@SuppressWarnings("rawtypes")
 	private static HashMap<Class, PersistenceDelegate> delegates = null;
 
 	/** A substitute value for aa really large value. Integer.MAX_VALUE is not used since that means a lot of defensive code
@@ -108,6 +109,7 @@ public final class LayoutUtil
 	 * @param c The class to set the registered deligate for.
 	 * @param del The new deligate or <code>null</code> to erase to old one.
 	 */
+	@SuppressWarnings("rawtypes")
 	static synchronized void setDelegate(Class c, PersistenceDelegate del)
 	{
 		if (LayoutUtil.isDesignTime() == false)
@@ -444,6 +446,7 @@ public final class LayoutUtil
 	 * @return The object. Never <code>null</code>.
 	 * @throws IOException If there was a problem saving as XML
 	 */
+	@SuppressWarnings("resource")
 	public static synchronized Object readAsXML(ObjectInput in) throws IOException
 	{
 		if (readBuf == null)

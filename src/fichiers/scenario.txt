@@ -1,0 +1,17 @@
+Entre dans la banque en passant inapercu,
+attache le gardien et prends lui les clefs,
+Recupere les otages du guichet,
+Enferme tout le monde dans la salle d attente,
+Bloque la porte principale de l entree,
+Recupere les cles de l imprimerie dans le bureau du directeur,
+Recupere l encre et le papier dans la reserve,
+Lance la premiere impression, 
+Recupere  lampe torche, brouette et pioche dans la maison du gardien,
+Commence a creuser le tunnel dans le coffre,
+Lance la 2ieme impression dans l imprimerie,
+Continue, en parallele, de creuser le tunnel,
+Lance la derniere impression,
+Terminer le tunnel dans la salle du coffre,
+Recupere les billets a l aide de la brouette,
+Echappe toi le plus vite possible par le tunnel.
+

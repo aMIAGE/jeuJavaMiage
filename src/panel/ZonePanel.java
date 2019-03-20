@@ -1,112 +1,177 @@
 package panel;
 import java.awt.CardLayout;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Vector;
 
+import elmtJeu.Enigme;
 import elmtJeu.Etape;
+import elmtJeu.Zone;
+import exception.HorsZoneException;
 import main.Jeu;
-import utils.Zone;
+import utils.LectureFichier;
 
-//c'est le paneau qui contiendra les images des zones et qui permettra de les faire défiler 
+/**
+ * <b>ZonePanel est une classe heritant de Panel</b>
+ * <p>
+ * ZonePanel est la classe representant l'espace dans lequel se trouve l'image de la zone courante du joueur (en bas, a gauche).
+ * ZonePanel est donc caracterise par les identifiants de Panel en plus de ceux la:
+ * <ul>
+ * <li>Une constante qui permet d'affecter un numero de version a la classe</li>
+ * <li>Un vecteur de Zone</li>
+ * <li>Un numero d'etape</li>
+ * </ul>
+ * </p>
+ * <p>
+ *  Un Panel fournit un espace dans lequel une application peut attacher tout autre composant, 
+ *  y compris d'autres Panels.
+ *  </p>
+ * @see Panel
+ * @see Zone
+ */
 public class ZonePanel extends Panel {
+	/**
+	 * Le serialVersionUID (qui permet d'affecter un numero de version a la classe)
+	 * est une propriete de classe et une constante (donc non modifiable)
+	 */
 	private static final long serialVersionUID = 1L;
-	public static int nbZone=0;
 	private Vector<Zone> vZone;
+	private int nbEtape;
 
-		
+	/**
+	 * Constructeur ZonePanel
+	 * <p>
+	 * A la construction d'un objet ZonePanel, 
+	 * un Panel est cree avec une image, une largeur et une longueur,
+	 * le nombre numero d'etape est initialise a 0, 
+	 * une disposition lui est affectee,
+	 * une zone lui est affectee,
+	 * </p>
+	 * @param nvImage
+	 * 					l'image de fond du Panel
+	 * @param nvLargeur
+	 * 					la largeur du Panel
+	 * @param nvLongueur
+	 * 					la longueur du Panel
+	 * 
+	 * @throws IOException Si jamais une exception d'Entree / Sortie s'est produite. 
+	 */
 	public ZonePanel(String nvImage,int nvLargeur, int nvLongueur) throws IOException {
 		super(nvImage,nvLargeur, nvLongueur);
-		
+		this.nbEtape = 0;
 		this.setLayout(new CardLayout());
 		this.ajouterZone();
+		this.setZoneImage("le hall d'entrée");
 		
 	}
 	
+	/**
+	 * Cree une zone a partir du fichier du meme nom
+	 * @throws IOException Si jamais une exception d'Entree / Sortie s'est produite. 
+	 */
 	public void ajouterZone() throws IOException {
-		//ajout de la zone couloir qui our l'instant represente tous ce qui n'est pas une piece
 		this.vZone = new Vector<Zone>();
-		Zone nvZone = new Zone("entree",ZonePanel.nbZone,"entree", 0, 0, 0, 0, null, null);
-		this.vZone.add(nvZone);
-		this.add(new Panel(nvZone.getImgSource(), this.largeur,this.longueur), nvZone.getNom());
-		ZonePanel.nbZone ++;
+		Zone nvZone;
+		String currentName;
 		
-		
-		BufferedReader infoZones = new BufferedReader(new FileReader("src/files/zones.txt"));
-		this.add(new Panel("blanc", 600,450), "blanc");
-		String nom;
-		Integer minX;
-		Integer maxX;
-		Integer minY;
-		Integer maxY;
-		String lineInfo = infoZones.readLine();
-		
-		BufferedReader etape = new BufferedReader( new FileReader("src/files/etapes.txt"));
-		String lineEtape = etape.readLine();
-		int numEtape;
+		LectureFichier fZones = new LectureFichier("zones", 8);
+		Vector<String> infosZones;
+		LectureFichier fEtapes = new LectureFichier("etapes", 5);
+		Vector<String> infosEtapes;
 		Vector<Etape> vEtapes;
-		
-		BufferedReader instructions = new BufferedReader( new FileReader("src/files/instructions.txt"));
-		String lineInstructions = instructions.readLine();
+		LectureFichier fInstructions = new LectureFichier("instructions", 2);
+		Vector<String> infosInstructions;
 		Vector<String> vInstructions;
+		LectureFichier fEnigmes = new LectureFichier("enigmes", 3);
+		Vector<String> infosEnigmes;
 		
-		while(lineInfo != null) {
-			//attention on suppose que tous les fichiers textes sont dans l'ordre et au bon format
-			ZonePanel.nbZone ++;
-			nom = lineInfo;
-			lineInfo = infoZones.readLine();
-			minX = (Integer)Integer.parseInt(lineInfo);
-			lineInfo = infoZones.readLine();
-			maxX = (Integer)Integer.parseInt(lineInfo);
-			lineInfo = infoZones.readLine();
-			minY = (Integer)Integer.parseInt(lineInfo);
-			lineInfo = infoZones.readLine();
-			maxY = (Integer)Integer.parseInt(lineInfo);
-			
+		while(!fZones.isEmpty()) {
+			currentName = fZones.getName();
+			infosZones = fZones.getInfos();
 			vEtapes = new Vector<Etape>();
-			while(lineEtape != null && nom.contentEquals(lineEtape)) {
-				numEtape = Integer.parseInt(etape.readLine());
-				lineEtape = etape.readLine();
-				if(!lineEtape.contentEquals("vide")) {
-					vEtapes.add(new Etape(nom, lineEtape, numEtape));
-				}else {
-					vEtapes = null;
+			
+			while(fEtapes.getName() != null && fEtapes.getName().contentEquals(currentName)){
+				infosEtapes = fEtapes.getInfos();
+				if(!infosEtapes.get(2).contentEquals("vide") && !infosEtapes.get(2).contentEquals("creuser")) {
+					infosEnigmes = fEnigmes.getInfos();
+					Enigme enigme = new Enigme("L'enigme de "+ currentName,infosEtapes.get(2), infosEnigmes.get(0), infosEnigmes.get(1), infosEnigmes.get(2),infosEtapes.get(4), infosEtapes.get(3));
+					vEtapes.add(new Etape(infosEtapes, enigme, false));
+					nbEtape ++;
 				}
-				lineEtape = etape.readLine(); // si on veut mettre plusieurs enigmes dans une étape on met plusieurs fois le nom
+				else {
+					if(infosEtapes.get(2).contentEquals("creuser")) {
+						vEtapes.add(new Etape(infosEtapes, null, true));
+						nbEtape ++;
+					}
+					else {
+						vEtapes = null;
+					}
+				}
 			}
-			
+				
 			vInstructions = new Vector<String>();
-			while(lineInstructions != null && nom.contentEquals(lineInstructions)) {
-				lineInstructions = instructions.readLine();
-				vInstructions.add(lineInstructions);
-				lineInstructions = instructions.readLine(); 
+			while(fInstructions.getName() != null && fInstructions.getName().contentEquals(currentName)) {
+				infosInstructions = fInstructions.getInfos();
+				vInstructions.add(infosInstructions.get(1));
 			}
 			
-			
-			nvZone = new Zone(nom,ZonePanel.nbZone,nom, minX, maxX, minY, maxY, vEtapes, vInstructions);
+			nvZone = new Zone(infosZones, vEtapes, vInstructions);
 			this.vZone.add(nvZone);
 			this.add(new Panel(nvZone.getImgSource(), this.largeur,this.longueur), nvZone.getNom());
-			lineInfo = infoZones.readLine();
+		
 		}
-		etape.close();
-		instructions.close();
-		infoZones.close();
+			
+		fZones.closeFile();
+		fInstructions.closeFile();
+		fEnigmes.closeFile();
+		fEtapes.closeFile();
+		
+		
 	}
 	
-	//nomzonecourante
+	/**
+	 * recupere le numero de l'etape
+	 * @return le numero de l'etape
+	 */
+	public int getNbEtape() {
+		return this.nbEtape;
+	}
+	
+	/**
+	 * recupere la zone courante du joueur
+	 * @return la zone courante
+	 */
 	public Zone getCurrentZone() {
-		for(int i=1;i<ZonePanel.nbZone;i++) {
-			if(Jeu.joueur.getPosX()>vZone.get(i).getDim().get(0) && Jeu.joueur.getPosX() < vZone.get(i).getDim().get(1) ) {
-				if(Jeu.joueur.getPosY() > vZone.get(i).getDim().get(2) && Jeu.joueur.getPosY() < vZone.get(i).getDim().get(3)) {
+		for(int i=0;i<vZone.size();i++) {
+			if(Jeu.getJoueur().getPosX()>=vZone.get(i).getDim().get(0) && Jeu.getJoueur().getPosX() <= vZone.get(i).getDim().get(1) ) {
+				if(Jeu.getJoueur().getPosY() >= vZone.get(i).getDim().get(2) && Jeu.getJoueur().getPosY() <= vZone.get(i).getDim().get(3)) {
 					return vZone.get(i);
 				}
 			}
 		}
-		return vZone.get(0);
-		//je suis dans un couloir dés que je ne suis pas dans une zone repertorié pour le moment
+		return null;
 	}
 	
+	/**
+	 * Met a jour la zone courante du joueur
+	 * @return la zone courante
+	 * @throws HorsZoneException si le joueur se trouve en dehors de toutes zones predefinies
+	 */
+	public Zone setZone() throws HorsZoneException{
+		Zone currentZone = this.getCurrentZone();
+		if(currentZone == null) {
+			throw new HorsZoneException("Vous n'etes pas dans une zone repertoriée");
+		}
+		this.setZoneImage(currentZone.getNom());
+		Jeu.getJoueur().setCurrentZone(currentZone.getNom()); 
+		Jeu.getFenetre().getPanels().getCommPanel().setZoneLabel(currentZone.getNom());
+		return currentZone;
+	}
+	
+	/**
+	 * Met a jour l'image de la zone courante du joueur
+	 * @param nom
+	 * 				image du meme nom que la zone courante
+	 */
 	public void setZoneImage(String nom) {
 		((CardLayout) this.getLayout()).show(this, nom);
 	}

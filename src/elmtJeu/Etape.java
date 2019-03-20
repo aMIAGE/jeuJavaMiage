@@ -1,27 +1,26 @@
 package elmtJeu;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
-import utils.Zone;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Vector;
+import javax.swing.Timer;
+import main.Jeu;
 
 public class Etape {
-	private String enigme;
 	private String zone;
-	private boolean check;
 	private int numEtape;
+	private Enigme enigme;
+	private Boolean creuser;
+	private Timer timer;
 	
-	public Etape(String nvZone, String nvEnigme, int num) {
-		this.enigme = nvEnigme;
-		this.zone = nvZone;
-		this.check = false;
-		this.numEtape = num;
+	public Etape( Vector<String> etape, Enigme enigme, Boolean creuser) {
+		this.zone = etape.get(0);
+		this.numEtape = Integer.parseInt(etape.get(1));
+		this.enigme = enigme;
+		this.creuser = creuser;
+		
 	}
 	
-	public String getEnigme() {
-		return this.enigme;
-	}
 	
 	public String getNomZone() {
 		return this.zone;
@@ -31,13 +30,24 @@ public class Etape {
 		return this.numEtape;
 	}
 	
-	public void setCheckStatut() {
-		this.check = true;
-	}
 	
-	public void launchEnigme(Fenetre fenetre) {
-		 Enigme enigme = new Enigme(fenetre, "le titre", false, this.getEnigme(), "");
+	public void launchEnigme() {
+		Jeu.getFenetre().getPanels().getJeuPanel().setTexte("Tiens toi prêt à résoudre une nouvelle enigme", "java");
+		Jeu.getFenetre().getPanels().getJeuPanel().setImage("java");
+		Jeu.getFenetre().getPanels().getJeuPanel().repaint();  
+		timer = new Timer(1*1000, new ActionListener() {
+			  public void actionPerformed(ActionEvent a) {
+				  if(creuser) {
+					  Creuser.startCreuser();
+				  }
+				  else {
+					  enigme.startEnigme();
+				  }
+				  Jeu.getFenetre().getPanels().getJeuPanel().setTime();
+			      timer.stop();
+			  }
+		  });
+		timer.start();
 	}
-	
 	
 }

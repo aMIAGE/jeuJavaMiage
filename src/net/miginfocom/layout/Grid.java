@@ -1098,6 +1098,7 @@ public final class Grid
 		TreeSet<Integer> secIndexes = isRows ? colIndexes : rowIndexes;
 		DimConstraint[] primDCs = (isRows ? rowConstr : colConstr).getConstaints();
 
+		@SuppressWarnings("unchecked")
 		ArrayList<LinkedDimGroup>[] groupLists = new ArrayList[primIndexes.size()];
 
 		int gIx = 0;
@@ -1886,7 +1887,9 @@ public final class Grid
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private static HashMap[] PARENT_ROWCOL_SIZES_MAP = null;
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	static synchronized void putSizesAndIndexes(Object parComp, int[] sizes, int[] ixArr, boolean isRows)
 	{
 		if (PARENT_ROWCOL_SIZES_MAP == null) {
@@ -1920,10 +1923,13 @@ public final class Grid
 		if (PARENT_ROWCOL_SIZES_MAP == null)
 			return null;
 
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		HashMap<WeakReference, int[][]> map = PARENT_ROWCOL_SIZES_MAP[isRows ? 0 : 1];
 		int[][] ret = null;
 
-		for (Iterator<Map.Entry<WeakReference, int[][]>> it = map.entrySet().iterator(); it.hasNext();) {
+		for (@SuppressWarnings("rawtypes")
+		Iterator<Map.Entry<WeakReference, int[][]>> it = map.entrySet().iterator(); it.hasNext();) {
+			@SuppressWarnings("rawtypes")
 			Map.Entry<WeakReference, int[][]> entry = it.next();
 			Object pComp = entry.getKey().get();
 

@@ -38,6 +38,7 @@ import net.miginfocom.layout.ContainerWrapper;
 
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
+
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.lang.reflect.Method;
@@ -410,9 +411,11 @@ public class SwingComponentWrapper implements ComponentWrapper
 
 	private static Method IMS_METHOD = null;
 	static {
-		try {
+		  try {
 			IMS_METHOD = Component.class.getDeclaredMethod("isMaximumSizeSet", null);
-		} catch (Throwable e) { // No such method or security exception
+		} catch (NoSuchMethodException | SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

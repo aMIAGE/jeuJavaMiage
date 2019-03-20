@@ -447,6 +447,7 @@ public final class UnitValue implements Serializable
 	 * @param unit The converter.
 	 * @return If there was a converter found and thus removed.
 	 */
+	@SuppressWarnings("unlikely-arg-type")
 	public final synchronized static boolean removeGlobalUnitConverter(String unit)
 	{
 		return CONVERTERS.remove(unit);

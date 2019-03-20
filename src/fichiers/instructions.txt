@@ -1,0 +1,40 @@
+adm
+Tu es dans les bureaux de l administration, rien de tres interressant.
+adm
+Eh arrete de m appeller, concentre toi !
+dir
+Tu es dans le bureau du directeur, prends ses clefs !
+gardien
+Tu es dans la maison du gardien, n en profite pas pour te reposer!
+gardien
+Ici, tu peux recuperer le passe-partout !
+gardien
+Tu peux recuperer le materiel pour le tunnel !
+guichet
+Ici, tu recuperes les otages pour les enfermer !
+entree
+Entre !
+entree
+Pense a verouiller la porte !
+reserve
+Tu es dans la reserve !
+reserve
+N y aurait t il pas du papier et de l encre ici ?
+attente
+Les otages se comportent bien ? Fais attention, verifie les noeuds !
+attente
+Va verouiller la porte d entree !
+coffres
+Tu es dans la salle des coffres !
+coffres
+C est la que tu creuseras le tunnel !
+imprimerie
+Tu es dans l imprimerie !
+imprimerie
+Tu devras lancer 3 impressions !
+imprimerie
+Entre chaque impression, continue de creuser le tunnel !
+couloir
+Tu es dans le couloir, as tu bien attache le gardien et les otages ?
+couloir
+Va attacher le gardien puis les otages !

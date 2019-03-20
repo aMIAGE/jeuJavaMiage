@@ -1,0 +1,42 @@
+﻿Quel est le numero manquant ?
+7
+src/images/sudoku1.jpg
+Quel est le prenom de la deleguee de la classe ?
+Elodie
+src/images/qui.jpg
+Quel est le 5ieme nombre premier ?
+11
+src/images/enigme.jpg
+Que signifie le M de "UML" ?
+modeling
+src/images/enigme.jpg
+Chiffrez le mot MIAGE a l aide du tableau
+139175
+src/images/alphabetchiffre.jpg
+Quel est le prenom du delegue de la classe?
+Khaled
+src/images/qui.jpg
+Donnez le chiffre manquant : 0-1-1-2-3-5-__-13-21
+8
+src/images/enigme.jpg
+Quel chiffre complete cette suite : 14 - 23 - 41 - _0
+5
+src/images/enigme.jpg
+Combien y a t il de carres ?
+40
+src/images/carres.jpg
+En java tout est ... Donnez la lettre correspondante
+b
+src/images/objet.jpg
+Quel est le domino manquant ?
+C
+src/images/dominos.jpg
+Quel est le numero manquant ?
+9
+src/images/sudoku2.jpg
+Quel est le NOM du directeur de la MIAGE ?
+CAUSSANEL
+src/images/qui.jpg
+Aimez vous notre jeu ?
+Oui
+src/images/enigme.jpg
