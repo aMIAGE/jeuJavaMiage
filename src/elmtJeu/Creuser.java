@@ -11,13 +11,41 @@ import net.miginfocom.swing.MigLayout;
 import panel.Panel;
 import utils.MsgIntro;
 
+/**
+ * <b>Creuser est la classe representant le mini-jeu creuser.</b>
+ * <p>
+ * Un mini-jeu creuser est caracterise par les informations suivantes :
+ * <ul>
+ * <li>Une image.</li>
+ * <li>Un texte.</li>
+ * <li>Un compteur.</li>
+ * </ul>
+ * @see Etape
+ */
+
 public class Creuser extends JDialog {
 	
 	private static final long serialVersionUID = 1L;
+	
+    /**
+     * Chaine qui contient le chemin de l'image a afficher sur la fenetre.
+     */
 	private String image = "src/images/creuser.jpg";
+	
+    /**
+     * Chaine qui contient le texte de la fenetre.
+     */
 	private String texte = "Appuie sur le bouton pour creuser !";
+	
+    /**
+     * Entier correspondant au nombre de clics.
+     */
 	private int compteur = 0;
 	
+    /**
+     * Constructeur Creuser, initialise les proprietes de la fenetre.
+     * 
+     */	
 	public Creuser() {
 		super(Jeu.getFenetre(), "Creuser le tunnel", true);
 		this.setSize(600, 400);
@@ -27,11 +55,21 @@ public class Creuser extends JDialog {
 		
 	}
 	
+    /**
+     * Instancie un objet creuser et invoque la methode initComponent()
+     * 
+     * @see #initComponent()
+     */
 	public static void startCreuser() {
 		Creuser creuser = new Creuser();
 		creuser.initComponent();
 	}
 	
+    /**
+     * Instancie panel, textes, bouttons et zones de textes et initialise leurs proprietes. Gere l'événement de clic sur le bouton.
+     * 
+     * Incremente compteur de 1 a chaque clic, quand ce compteur atteint 10, le mini-jeu est termine.
+     */
 	private void initComponent() {
 		
 		//panel de base
