@@ -153,6 +153,7 @@ public class Enigme extends JDialog {
 		        }
 		        else {
 		        	MsgPerdu.createMessage(messagePerdant + " Voulez vous recommencer ?");
+				setVisible(false);
 		        }
 	        }
 	      }
