@@ -1,4 +1,4 @@
-﻿adm
+adm
 0
 vide
 vide
@@ -45,9 +45,9 @@ Felicitations : ils ne bougeront plus !
 L un d’eux vous attrape par surprise et les autres s’enfuient : vous perdez !
 coffres
 9
-Parviendrez-vous a trouver le code du coffre ?
-Felicitations : vous allez pouvoir continuer !
-Dommage, l alarme se declenche : vous perdez !
+creuser
+creuser
+creuser
 coffres
 11
 creuser
@@ -60,9 +60,9 @@ creuser
 creuser
 coffres
 15
-creuser
-creuser
-creuser
+Parviendrez-vous a vous echapper avec l argent?
+Felicitations : partez vite !
+Dommage, l alarme se declenche : vous perdez !
 imprimerie
 7
 Parviendrez-vous a lancer l’imprimante ?
@@ -87,4 +87,4 @@ couloir
 0
 vide
 vide
-vide  
+vide
